@@ -1,1 +1,28 @@
 @import 'tailwindcss';
+
+
+@layer components {
+  .post-card {
+    @apply bg-neutral-900 text-white p-4 md:p-6 rounded-none flex flex-col h-full transition-colors;
+  }
+
+  .post-card:hover {
+    @apply bg-neutral-800;
+  }
+
+  .post-card-title {
+    @apply text-5xl font-semibold mb-4;
+  }
+
+  .post-card-subtitle {
+    @apply text-lg font-medium text-white mb-2;
+  }
+
+  .post-card-description {
+    @apply text-neutral-400 mb-4;
+  }
+
+  .post-card-label {
+    @apply text-sm font-medium text-[#ff0] border-b-2 border-neutral-700 hover:border-[#ff0];
+  }
+}
