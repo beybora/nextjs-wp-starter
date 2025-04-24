@@ -7,24 +7,28 @@ export default async function Page({ params }) {
 
     const { data } = await getPostBySlug(slug);
 
-    console.log('post', data);
 
     if (!data) {
         notFound();
     }
+
+    const formattedDate = data.nodeByUri.date
+        ? new Date(data.nodeByUri.date).toLocaleDateString('de-DE', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        })
+        : null;
+
 
     return (
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <h1 className="text-3xl font-bold mb-2">{data.nodeByUri.title}</h1>
 
             <div className="text-gray-600 mb-6">
-                {data.nodeByUri.date && (
-                    <time dateTime={data.nodeByUri.date}>
-                        {new Date(data.nodeByUri.date).toLocaleDateString('de-DE', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        })}
+                {formattedDate && (
+                    <time dateTime={data.nodeByUri.date} className="text-sm">
+                        {formattedDate}
                     </time>
                 )}
             </div>

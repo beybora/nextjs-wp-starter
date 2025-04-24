@@ -23,7 +23,6 @@ const MainNavigation = async () => {
                     </li>
                 ))
             ) : (
-                // Leere Navigation wenn keine Items vorhanden sind
                 <></>
             )}
         </ul>
