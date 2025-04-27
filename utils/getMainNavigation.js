@@ -1,34 +1,41 @@
-
 export const getMainNavigation = async () => {
     const queryParams = {
         query: `
-        query MainMenuQuery {
-         menuItems(where: {location: MENU_1}) {
-           nodes {
-               id
-               label
-               url
-               parentId
-    }
-  }
-}
-    `,
+            query MainMenuQuery {
+                menuItems(where: {location: MENU_1}) {
+                    nodes {
+                        id
+                        label
+                        url
+                        parentId
+                    }
+                }
+            }
+        `,
     };
 
-    const response = await fetch(process.env.WP_GRAPHQL_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(queryParams),
-    });
+    console.log("[getMainNavigation] Fetching main navigation...");
 
-    const { data } = await response.json();
+    try {
+        const response = await fetch(process.env.WP_GRAPHQL_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(queryParams),
+        });
 
-    if (!data.menuItems?.nodes) {
-        return null;
+        const { data } = await response.json();
+
+        if (!data?.menuItems?.nodes) {
+            console.warn("[getMainNavigation] No menu items found.");
+            return [];
+        }
+
+        console.log("[getMainNavigation] Navigation fetched successfully.");
+        return data.menuItems.nodes;
+    } catch (error) {
+        console.error("[getMainNavigation] Error fetching navigation:", error);
+        return [];
     }
-
-    return data.menuItems.nodes;
-
 };
