@@ -3,7 +3,13 @@ import PostsSection from "../sections/PostsSection/PostsSection";
 import TextIconSplit from "../sections/TextIconSplit/TextIconSplit";
 
 export const BlockRenderer = ({ blocks }) => {
-    console.log(blocks?.map((block) => block));
+    if (!Array.isArray(blocks)) {
+        console.log("[BlockRenderer] Warning: Blocks is not an array!", blocks);
+        return null;
+    }
+
+    console.log("[BlockRenderer] Rendering blocks:", blocks);
+
     return blocks.map((block) => {
         switch (block.name) {
             case "custom-block/hero":
@@ -15,5 +21,5 @@ export const BlockRenderer = ({ blocks }) => {
             default:
                 return null;
         }
-    })
-}
+    });
+};
