@@ -25,8 +25,8 @@ export const getSocialIcons = async () => {
 
     const { data } = await response.json();
 
-    if (!data.menuItems?.nodes) {
-        return null;
+    if (!data || !data.menuItems || !data.menuItems.nodes) {
+        return [];
     }
 
     return data.menuItems.nodes;
