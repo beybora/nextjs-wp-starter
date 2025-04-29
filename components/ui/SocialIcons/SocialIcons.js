@@ -34,7 +34,7 @@ const SocialIcons = async () => {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-[#FFFC03] transition"
+                        className="text-gray-400 hover:text-[#FFFC03] transition duration-200 ease-in-out"
                     >
                         {IconComponent ? <IconComponent /> : null}
                         <span className="sr-only">{item.title}</span>

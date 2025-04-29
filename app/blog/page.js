@@ -7,7 +7,7 @@ export default async function BlogPage() {
     const posts = await getPosts();
 
     return (
-        <> <Hero attributes={{ title: "My personal Blog", description: "Read what I write" }} />
+        <> <Hero attributes={{ title: "My Blog", description: "Read what I write" }} />
             <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
                 <PostsGrid posts={posts.nodes} />
             </div>

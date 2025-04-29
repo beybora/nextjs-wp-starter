@@ -4,9 +4,7 @@ import Link from 'next/link';
 
 export default async function Page({ params }) {
     const { slug } = params;
-
     const { data } = await getPostBySlug(slug);
-
 
     if (!data) {
         notFound();
@@ -16,35 +14,34 @@ export default async function Page({ params }) {
         ? new Date(data.nodeByUri.date).toLocaleDateString('de-DE', {
             year: 'numeric',
             month: 'long',
-            day: 'numeric'
+            day: 'numeric',
         })
         : null;
 
-
     return (
-        <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h1 className="text-3xl font-bold mb-2">{data.nodeByUri.title}</h1>
+        <main className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl w-full text-center">
+                <h1 className="text-3xl font-bold mb-2">{data.nodeByUri.title}</h1>
 
-            <div className="text-gray-600 mb-6">
                 {formattedDate && (
-                    <time dateTime={data.nodeByUri.date} className="text-sm">
-                        {formattedDate}
-                    </time>
+                    <div className="text-gray-600 text-sm mb-6">
+                        <time dateTime={data.nodeByUri.date}>{formattedDate}</time>
+                    </div>
                 )}
-            </div>
 
-            {data.nodeByUri.content && (
-                <div
-                    className="prose prose-lg max-w-none"
-                    dangerouslySetInnerHTML={{ __html: data.nodeByUri.content }}
-                />
-            )}
+                {data.nodeByUri.content && (
+                    <div
+                        className="prose prose-lg mx-auto text-left"
+                        dangerouslySetInnerHTML={{ __html: data.nodeByUri.content }}
+                    />
+                )}
 
-            <div className="mt-8 pt-4 border-t">
-                <Link href="/blog" className="text-[#ff0] hover:underline">
-                    ← Blog
-                </Link>
+                <div className="mt-8 pt-4 border-t text-left">
+                    <Link href="/blog" className="text-[#ff0] hover:underline">
+                        ← Zurück
+                    </Link>
+                </div>
             </div>
-        </div>
+        </main>
     );
 }

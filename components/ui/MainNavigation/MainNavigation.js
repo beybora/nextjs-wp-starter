@@ -1,6 +1,5 @@
-
 import { getMainNavigation } from '@/utils/getMainNavigation';
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
 
 const MainNavigation = async () => {
@@ -8,7 +7,7 @@ const MainNavigation = async () => {
 
     return (
         <ul className="text-center">
-            {navigationItems && navigationItems.length > 0 ? (
+            {navigationItems?.length > 0 &&
                 navigationItems.map((item, index) => (
                     <li
                         key={item.id || index}
@@ -16,15 +15,12 @@ const MainNavigation = async () => {
                     >
                         <Link
                             href={item.url || '#'}
-                            className="inline-flex gap-x-2 text-sm text-gray-500 hover:text-[#FFFC03]  focus:outline-hidden focus:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+                            className="inline-flex gap-x-2 text-sm text-gray-500 transition duration-200 ease-in-out hover:text-[#FFFC03] dark:text-neutral-500"
                         >
                             {item.label || 'Menu Item'}
                         </Link>
                     </li>
-                ))
-            ) : (
-                <></>
-            )}
+                ))}
         </ul>
     );
 };
