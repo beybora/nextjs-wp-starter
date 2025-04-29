@@ -26,3 +26,45 @@
     @apply text-sm font-medium text-[#ff0] border-b-2 border-neutral-700 hover:border-[#ff0];
   }
 }
+
+@layer components {
+
+  .post-card-container {
+    @apply overflow-hidden rounded-none bg-white border border-neutral-200 shadow transition-all duration-200;
+  }
+
+  .post-card-hover-yellow {
+    @apply group-hover:shadow-[0_4px_20px_rgba(255,255,0,0.25)];
+  }
+
+  .post-card-date {
+    @apply text-xs text-neutral-500 mb-1;
+  }
+
+  .post-card-heading {
+    @apply text-xl font-bold text-neutral-900 group-hover:underline;
+  }
+
+  .post-card-excerpt {
+    @apply mt-2 text-neutral-700 text-sm line-clamp-3;
+  }
+
+  .post-card-readmore {
+    @apply mt-4 inline-flex items-center text-sm font-medium text-blue-600 group-hover:text-blue-800 transition-colors;
+  }
+
+}
+
+@layer components {
+  .hover-highlight {
+    @apply transition-all duration-200 ease-in-out hover:text-[#FFFC03];
+  }
+
+  .hover-highlight:hover {
+    box-shadow:
+      0 0 4px rgba(255, 255, 0, 0.1),
+      0 4px 10px rgba(255, 255, 0, 0.2),
+      0 8px 30px rgba(255, 255, 0, 0.1);
+  }
+}
+
