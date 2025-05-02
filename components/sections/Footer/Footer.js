@@ -10,7 +10,7 @@ const Footer = () => {
                 <div>
                     <Link
                         href="/"
-                        className="text-xl font-semibold text-black dark:text-white transition duration-200 hover:text-[#FFFC03]"
+                        className="text-xl font-semibold text-black transition duration-200 hover:text-[#FFFC03]"
                     >
                         Bora Bey Sarikaya
                     </Link>

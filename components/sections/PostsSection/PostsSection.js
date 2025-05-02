@@ -28,10 +28,10 @@ const PostsSection = ({ attributes }) => {
     return (
         <div className="container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-7 sm:py-10 lg:py-12">
             <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     {attributes?.title || "Featured Posts"}
                 </h2>
-                <p className="mt-3 text-lg text-gray-600 dark:text-gray-400">
+                <p className="mt-3 text-lg text-gray-600 ">
                     {attributes?.subtitle || "Discover our most popular articles"}
                 </p>
             </div>
@@ -44,7 +44,7 @@ const PostsSection = ({ attributes }) => {
                 </div>
             ) : (
                 <div className="text-center py-8">
-                    <p className="text-gray-500 dark:text-gray-400">No featured posts available.</p>
+                    <p className="text-gray-500">No featured posts available.</p>
                 </div>
             )}
         </div>

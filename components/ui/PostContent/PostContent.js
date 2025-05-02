@@ -4,11 +4,11 @@ export default function PostContent({ post }) {
     console.log('PostContent', post);
     return (
         <article>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
                 {post.title}
             </h1>
 
-            <div className="mt-4 flex items-center text-gray-500 dark:text-gray-400">
+            <div className="mt-4 flex items-center text-gray-500">
                 <span>{post.date}</span>
             </div>
 
@@ -24,7 +24,7 @@ export default function PostContent({ post }) {
             )}
 
             <div
-                className="mt-8 prose prose-lg max-w-none dark:prose-invert"
+                className="mt-8 prose prose-lg max-w-none"
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
         </article>

@@ -6,7 +6,7 @@ const IconBlock = ({ imageUrl, title, description }) => {
         <div className="flex gap-x-5 sm:gap-x-8">
             {/* Icon/Image – nur rendern, wenn vorhanden */}
             {imageUrl && (
-                <span className="shrink-0 inline-flex justify-center items-center size-11 rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs mx-auto dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                <span className="shrink-0 inline-flex justify-center items-center size-11 rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs mx-auto">
                     <Image
                         src={imageUrl}
                         width={20}
@@ -19,10 +19,10 @@ const IconBlock = ({ imageUrl, title, description }) => {
 
             {/* Content */}
             <div className="grow">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
                     {title}
                 </h3>
-                <p className="mt-1 text-gray-600 dark:text-neutral-400">
+                <p className="mt-1 text-gray-600">
                     {description}
                 </p>
             </div>
