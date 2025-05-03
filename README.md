@@ -1,5 +1,7 @@
 # Next.js WordPress Starter by Bora Bey Sarikaya
 
+Backend Repo: https://github.com/beybora/nextjs-wp-starter-backend
+
 A clean and minimalistic starter project for building headless websites using WordPress as a CMS and Next.js as the frontend framework. It connects to the WordPress backend via GraphQL using the WPGraphQL plugin.
 
 ---
